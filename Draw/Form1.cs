@@ -61,7 +61,10 @@ namespace Draw
         private void drawingScreen_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.SetParameters(PixelToMn(drawingScreen.Height));
+            //e.Graphics.GetPa
             shapeManager.drawScreen(e.Graphics , firstPoint, currentPosition);
+            //label1.Text = currentPosition.X + "      " + currentPosition.Y;
+            //label2.Text = PixelToMn(drawingScreen.Width) + "";
         }
 
         private void drawingScreen_MouseUp(object sender, MouseEventArgs e)

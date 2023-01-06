@@ -96,11 +96,13 @@ namespace Draw
             // 
             // drawingScreen
             // 
+            this.drawingScreen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.drawingScreen.BackColor = System.Drawing.SystemColors.Window;
-            this.drawingScreen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.drawingScreen.Location = new System.Drawing.Point(0, 0);
+            this.drawingScreen.Location = new System.Drawing.Point(-2, 0);
             this.drawingScreen.Name = "drawingScreen";
-            this.drawingScreen.Size = new System.Drawing.Size(1456, 759);
+            this.drawingScreen.Size = new System.Drawing.Size(1188, 761);
             this.drawingScreen.TabIndex = 0;
             this.drawingScreen.TabStop = false;
             this.drawingScreen.Paint += new System.Windows.Forms.PaintEventHandler(this.drawingScreen_Paint);

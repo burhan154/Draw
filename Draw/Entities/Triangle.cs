@@ -19,6 +19,8 @@ namespace Draw.Entities
         public override void Draw(Graphics graphics, SolidBrush brush)
         {
             //graphics.DrawRectangle(new SolidBrush(Color.Red), new Rectangle(Center, new Vector2(EndPoint.X+1,EndPoint.Y-1)));
+            preventOverflow(graphics.ClipBounds.Width, graphics.ClipBounds.Height);
+
             graphics.DrawTriangle(brush, this);
         }
 

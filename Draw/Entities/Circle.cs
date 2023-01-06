@@ -17,6 +17,7 @@ namespace Draw.Entities
         }
         public override void Draw(Graphics graphics, SolidBrush brush)
         {
+            preventOverflowCircle(graphics.ClipBounds.Width, graphics.ClipBounds.Height);
             graphics.DrawCircle(brush, this);
         }
 
@@ -27,7 +28,7 @@ namespace Draw.Entities
 
         public override void Select(Graphics graphics, SolidBrush brush, Vector2 currentPosition)
         {
-            graphics.DrawCircle(brush, new Entities.Rectangle(Center, new Vector2(EndPoint.X + 2, EndPoint.Y - 2), brush));
+            graphics.DrawCircle(brush, new Entities.Rectangle(Center, new Vector2(StartPoint().X - 2, StartPoint().Y - 2), brush));
         }
     }
 }

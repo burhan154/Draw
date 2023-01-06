@@ -82,6 +82,8 @@ namespace Draw.ShapeManagement
             this.currentPosition = currentPosition;
             this.firstPoint = firstPoint;
 
+            //graphics.ClipBounds.Size;
+
             if (isMouseDown && !select)
             {
                 //select = false;

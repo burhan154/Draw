@@ -50,7 +50,12 @@ namespace Draw.ShapeManagement
 
         public Vector2 StartPoint()
         {
-            return new Vector2(2 * Center.X - EndPoint.X, 2 * Center.Y - EndPoint.Y);
+            double zx = Math.Abs(EndPoint.X - Center.X);
+            double zy = Math.Abs(EndPoint.Y - Center.Y);
+            double x = (Center.X - zx);
+            double y = (Center.Y - zy);
+
+            return new Vector2(x,  y);
         }
 
         public double Radius()
@@ -67,8 +72,72 @@ namespace Draw.ShapeManagement
             Center.Y = newPoint.Y;
 
             EndPoint.X = Center.X + x;
-            EndPoint.Y = Center.Y + y;
+            EndPoint.Y = Center.Y + y; 
         }
+
+
+        protected void preventOverflow(double width, double height)
+        {
+
+            if (isPointInside(new Vector2(Center.X, 0)))
+            {
+                Move(new Vector2(Center.X, Math.Abs(EndPoint.Y - Center.Y)));
+            }
+            if (isPointInside(new Vector2(Center.X, height)))
+            {
+                Move(new Vector2(Center.X, Math.Abs(height - (Center.Y - StartPoint().Y))));
+            }
+            if (isPointInside(new Vector2(0, Center.Y)))
+            {
+                Move(new Vector2(Center.X - StartPoint().X, Center.Y));
+            }
+            if (isPointInside(new Vector2(width, Center.Y)))
+            {
+                Move(new Vector2(Math.Abs(width - (Center.X - StartPoint().X)), Center.Y));
+            }
+
+
+
+
+
+            //if (isLineInside(0.0, StartPoint().X))
+            //{
+            //    Move(new Vector2(Center.X - StartPoint().X, Center.Y));
+            //}
+            //if (isLineInside(0.0, StartPoint().Y))
+            //{
+            //    Move(new Vector2(Center.X, Math.Abs(EndPoint.Y - Center.Y)));
+            //}
+            //if (isLineInside(2 * Center.X - StartPoint().X, width))
+            //{
+            //    Move(new Vector2(Math.Abs(width - (Center.X - StartPoint().X)), Center.Y));
+            //}
+            //if (isLineInside(2 * Center.Y - StartPoint().Y , height))
+            //{
+            //    Move(new Vector2(Math.Abs(Center.X), Math.Abs(height - (Center.Y - StartPoint().Y))));
+            //}
+        }
+        protected void preventOverflowCircle(double width, double height)
+        {
+            //Radius()
+            if (isPointInside(new Vector2(Center.X, 0)))
+            {
+                Move(new Vector2(Center.X, Radius()));
+            }
+            if (isPointInside(new Vector2(Center.X, height)))
+            {
+                Move(new Vector2(Center.X, Math.Abs(height - Radius())));
+            }
+            if (isPointInside(new Vector2(0, Center.Y)))
+            {
+                Move(new Vector2(Radius(), Center.Y));
+            }
+            if (isPointInside(new Vector2(width, Center.Y)))
+            {
+                Move(new Vector2(Math.Abs(width - Radius()), Center.Y));
+            }
+        }
+
 
         protected bool isPointInsideRectangle(Vector2 point)
         {
