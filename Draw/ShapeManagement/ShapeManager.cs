@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using static Draw.ShapeManagement.EnumShapes;
@@ -13,13 +14,13 @@ namespace Draw.ShapeManagement
     class ShapeManager
     {
         private List<Shape> shapes = new List<Shape>();
-
+        private ShapeCreator shapeCreator = new ShapeCreator();
 
         private SolidBrush brush = new SolidBrush(Color.Blue);
         private SolidBrush extbrush = new SolidBrush(Color.LightGray);
         private SolidBrush selectedBrush = new SolidBrush(Color.Gray);
         private bool isMouseDown = false;
-
+        private Graphics graphics;
         private Vector2 currentPosition;
         private Vector2 firstPoint;
         private EnumShape shape;
@@ -29,7 +30,12 @@ namespace Draw.ShapeManagement
         private bool select=false;
         private bool selectShape = false;
 
-        private void Screen(Graphics graphics)
+        public void setGraphics(Graphics graphics)
+        {
+            this.graphics = graphics;
+        }
+
+        private void Screen()
         {
             if (shapes.Count > 0)
             {
@@ -77,26 +83,23 @@ namespace Draw.ShapeManagement
         } 
 
 
-        public void drawScreen(Graphics graphics, Vector2 firstPoint,Vector2 currentPosition )
+        public void drawScreen( Vector2 firstPoint,Vector2 currentPosition )
         {
             this.currentPosition = currentPosition;
             this.firstPoint = firstPoint;
 
-            //graphics.ClipBounds.Size;
-
             if (isMouseDown && !select)
             {
-                //select = false;
-                Shape newShape = CreateNewShape(shape, firstPoint, currentPosition, brush);
+                Shape newShape = shapeCreator.CreateNewShape(shape, firstPoint, currentPosition, brush);
                 newShape.Draw(graphics, extbrush);
             }
-            Screen(graphics);
+            Screen();
         }
 
         public void addActiveShape()
         {
             if(isMouseDown && !select)
-                shapes.Add(CreateNewShape(shape, firstPoint, currentPosition, brush));
+                shapes.Add(shapeCreator.CreateNewShape(shape, firstPoint, currentPosition, brush));
             isMouseDown = false;
         }
 
@@ -123,8 +126,6 @@ namespace Draw.ShapeManagement
             if (select)
                 selectedShape = null;
             select = !select;
-            
-
         }
         public void Remove()
         {
@@ -143,19 +144,19 @@ namespace Draw.ShapeManagement
             setShapes(Files.Open());
         }
 
-        public string getShapes()
+        private string getShapes()
         {
             List<ShapeEntity> shapeEntities = new List<ShapeEntity>();
             var b = shapes.Select(x => x.shapeEntity);
             return JsonConvert.SerializeObject(b);
         }
 
-        public void setShapes(string JSON)
+        private void setShapes(string JSON)
         {
             List<ShapeEntity> shapeEntities = shapeEntities = JsonConvert.DeserializeObject<List<ShapeEntity>>(JSON); ;
 
             shapeEntities.ForEach(s => {
-                shapes.Add(CreateNewShape(s));
+                shapes.Add(shapeCreator.CreateNewShape(s));
             });
         }
     }

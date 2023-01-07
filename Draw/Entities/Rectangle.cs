@@ -18,43 +18,8 @@ namespace Draw.Entities
 
         public override void Draw(Graphics graphics, SolidBrush brush)
         {
-            //if (isLineInside(0.0, StartPoint().X))
-            //{
-            //    Move(new Vector2(Center.X - StartPoint().X, Center.Y));
-            //}
-            //if (isLineInside(0.0, StartPoint().Y))
-            //{
-            //    Move(new Vector2(Center.X, Math.Abs(EndPoint.Y- Center.Y)));
-            //}
-            //if (isLineInside( 2 * Center.X - StartPoint().X, graphics.ClipBounds.Width ))
-            //{
-            //    Move(new Vector2(Math.Abs(graphics.ClipBounds.Width - (Center.X - StartPoint().X)), Center.Y));
-            //}
-            //if (isLineInside(2 * Center.Y - StartPoint().Y / 2, graphics.ClipBounds.Height  ))
-            //{
-            //    Move(new Vector2(Math.Abs(Center.X ), Math.Abs(graphics.ClipBounds.Height - (Center.Y - StartPoint().Y/2))));
-            //}
 
-            //preventOverflow(graphics.ClipBounds.Width, graphics.ClipBounds.Height);
-
-            
-            if (isPointInside(new Vector2(Center.X , 0)))
-            {
-                Move(new Vector2(Center.X, Math.Abs(EndPoint.Y - Center.Y)));
-            }
-            if (isPointInside(new Vector2(Center.X, graphics.ClipBounds.Height)))
-            {
-                Move(new Vector2(Center.X, Math.Abs(graphics.ClipBounds.Height - (Center.Y - StartPoint().Y))));
-            }
-            if (isPointInside(new Vector2(0, Center.Y)))
-            {
-                Move(new Vector2(Center.X - StartPoint().X, Center.Y));
-            }
-            if (isPointInside(new Vector2(graphics.ClipBounds.Width, Center.Y)))
-            {
-                Move(new Vector2(Math.Abs(graphics.ClipBounds.Width - (Center.X - StartPoint().X)), Center.Y));
-            }
-
+            preventOverflow(graphics.ClipBounds.Width, graphics.ClipBounds.Height);
             graphics.DrawRectangle(brush, this);
 
         }

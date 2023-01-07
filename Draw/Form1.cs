@@ -1,5 +1,6 @@
 ﻿using Draw.Entities;
 using Draw.ShapeManagement;
+using Draw.Tools;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,16 +18,18 @@ namespace Draw
     {
         private Vector2 currentPosition;
         private Vector2 firstPoint;
-        private ShapeManager shapeManager = new ShapeManager();
-
+        private ShapeManager shapeManager;
+        private Cartesian cartesian;
         public Form1()
         {
             InitializeComponent();
+            shapeManager = new ShapeManager();
+            cartesian = new Cartesian(drawingScreen,DPI);
         }
 
         private void drawingScreen_MouseMove(object sender, MouseEventArgs e)
         {
-            currentPosition = PointToCartesian(e.Location);
+            currentPosition = cartesian.PointToCartesian(e.Location);
             drawingScreen.Refresh();
         }
         private float DPI
@@ -38,18 +41,8 @@ namespace Draw
             }
         }
 
-        private Vector2 PointToCartesian(System.Drawing.Point point)
-        {
-            return new Vector2(PixelToMn(point.X), PixelToMn(drawingScreen.Height - point.Y));
-        }
-        private float PixelToMn(float pixel)
-        {
-            return pixel * 25.4f / DPI;
-        }
-
         private void drawingScreen_MouseDown(object sender, MouseEventArgs e)
         {
-            
             if(e.Button == MouseButtons.Left)
             {
                 firstPoint = currentPosition;
@@ -60,11 +53,9 @@ namespace Draw
 
         private void drawingScreen_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.SetParameters(PixelToMn(drawingScreen.Height));
-            //e.Graphics.GetPa
-            shapeManager.drawScreen(e.Graphics , firstPoint, currentPosition);
-            //label1.Text = currentPosition.X + "      " + currentPosition.Y;
-            //label2.Text = PixelToMn(drawingScreen.Width) + "";
+            e.Graphics.SetParameters(cartesian.PixelToMn(drawingScreen.Height));
+            shapeManager.setGraphics(e.Graphics);
+            shapeManager.drawScreen(firstPoint, currentPosition);
         }
 
         private void drawingScreen_MouseUp(object sender, MouseEventArgs e)
@@ -97,49 +88,10 @@ namespace Draw
             shapeManager.Select();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void ColorButton_Click(object sender, EventArgs e)
         {
-            shapeManager.setColor(Color.Red);
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            shapeManager.setColor(Color.Blue);
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            shapeManager.setColor(Color.Green);
-        }
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-            shapeManager.setColor(Color.Orange);
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            shapeManager.setColor(Color.Black);
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            shapeManager.setColor(Color.Yellow);
-        }
-
-        private void button13_Click(object sender, EventArgs e)
-        {
-            shapeManager.setColor(Color.Purple);
-        }
-
-        private void button12_Click(object sender, EventArgs e)
-        {
-            shapeManager.setColor(Color.Brown);
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            shapeManager.setColor(Color.White);
+            var senderButton = sender as Button;
+            shapeManager.setColor(senderButton.BackColor);
         }
 
         private void button17_Click(object sender, EventArgs e)

@@ -138,7 +138,7 @@ namespace Draw
             this.button11.Size = new System.Drawing.Size(70, 70);
             this.button11.TabIndex = 13;
             this.button11.UseVisualStyleBackColor = false;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.button11.Click += new System.EventHandler(this.ColorButton_Click);
             // 
             // button8
             // 
@@ -148,7 +148,7 @@ namespace Draw
             this.button8.Size = new System.Drawing.Size(70, 70);
             this.button8.TabIndex = 13;
             this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.button8.Click += new System.EventHandler(this.ColorButton_Click);
             // 
             // button12
             // 
@@ -158,7 +158,7 @@ namespace Draw
             this.button12.Size = new System.Drawing.Size(70, 70);
             this.button12.TabIndex = 12;
             this.button12.UseVisualStyleBackColor = false;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.button12.Click += new System.EventHandler(this.ColorButton_Click);
             // 
             // button7
             // 
@@ -168,7 +168,7 @@ namespace Draw
             this.button7.Size = new System.Drawing.Size(70, 70);
             this.button7.TabIndex = 10;
             this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.button7.Click += new System.EventHandler(this.ColorButton_Click);
             // 
             // button13
             // 
@@ -178,7 +178,7 @@ namespace Draw
             this.button13.Size = new System.Drawing.Size(70, 70);
             this.button13.TabIndex = 11;
             this.button13.UseVisualStyleBackColor = false;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.button13.Click += new System.EventHandler(this.ColorButton_Click);
             // 
             // button9
             // 
@@ -188,7 +188,7 @@ namespace Draw
             this.button9.Size = new System.Drawing.Size(70, 70);
             this.button9.TabIndex = 12;
             this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.button9.Click += new System.EventHandler(this.ColorButton_Click);
             // 
             // button6
             // 
@@ -198,7 +198,7 @@ namespace Draw
             this.button6.Size = new System.Drawing.Size(70, 70);
             this.button6.TabIndex = 9;
             this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button6.Click += new System.EventHandler(this.ColorButton_Click);
             // 
             // button10
             // 
@@ -208,18 +208,18 @@ namespace Draw
             this.button10.Size = new System.Drawing.Size(70, 70);
             this.button10.TabIndex = 11;
             this.button10.UseVisualStyleBackColor = false;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.button10.Click += new System.EventHandler(this.ColorButton_Click);
             // 
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.Red;
-            this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button5.ForeColor = System.Drawing.SystemColors.Control;
             this.button5.Location = new System.Drawing.Point(20, 21);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(70, 70);
             this.button5.TabIndex = 8;
             this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button5.Click += new System.EventHandler(this.ColorButton_Click);
             // 
             // groupBox3
             // 

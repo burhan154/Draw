@@ -79,62 +79,41 @@ namespace Draw.ShapeManagement
         protected void preventOverflow(double width, double height)
         {
 
-            if (isPointInside(new Vector2(Center.X, 0)))
+            if ( StartPoint().Y  < 0)
             {
-                Move(new Vector2(Center.X, Math.Abs(EndPoint.Y - Center.Y)));
+                Move(new Vector2(Center.X, Center.Y - StartPoint().Y));
             }
-            if (isPointInside(new Vector2(Center.X, height)))
+            if (2*Center.Y - StartPoint().Y > height)
             {
-                Move(new Vector2(Center.X, Math.Abs(height - (Center.Y - StartPoint().Y))));
+                Move(new Vector2(Center.X, height - (Center.Y - StartPoint().Y)));
             }
-            if (isPointInside(new Vector2(0, Center.Y)))
+            if (StartPoint().X < 0)
             {
                 Move(new Vector2(Center.X - StartPoint().X, Center.Y));
             }
-            if (isPointInside(new Vector2(width, Center.Y)))
+            if (2 * Center.X - StartPoint().X > width)
             {
-                Move(new Vector2(Math.Abs(width - (Center.X - StartPoint().X)), Center.Y));
+                Move(new Vector2(width - (Center.X- StartPoint().X), Center.Y));
             }
-
-
-
-
-
-            //if (isLineInside(0.0, StartPoint().X))
-            //{
-            //    Move(new Vector2(Center.X - StartPoint().X, Center.Y));
-            //}
-            //if (isLineInside(0.0, StartPoint().Y))
-            //{
-            //    Move(new Vector2(Center.X, Math.Abs(EndPoint.Y - Center.Y)));
-            //}
-            //if (isLineInside(2 * Center.X - StartPoint().X, width))
-            //{
-            //    Move(new Vector2(Math.Abs(width - (Center.X - StartPoint().X)), Center.Y));
-            //}
-            //if (isLineInside(2 * Center.Y - StartPoint().Y , height))
-            //{
-            //    Move(new Vector2(Math.Abs(Center.X), Math.Abs(height - (Center.Y - StartPoint().Y))));
-            //}
         }
         protected void preventOverflowCircle(double width, double height)
         {
             //Radius()
-            if (isPointInside(new Vector2(Center.X, 0)))
+            if (Center.Y -Radius() < 0)
             {
                 Move(new Vector2(Center.X, Radius()));
             }
-            if (isPointInside(new Vector2(Center.X, height)))
+            if (Center.Y + Radius() > height)
             {
-                Move(new Vector2(Center.X, Math.Abs(height - Radius())));
+                Move(new Vector2(Center.X, height - Radius()));
             }
-            if (isPointInside(new Vector2(0, Center.Y)))
+            if (Center.X - Radius() < 0)
             {
                 Move(new Vector2(Radius(), Center.Y));
             }
-            if (isPointInside(new Vector2(width, Center.Y)))
+            if (Center.X+ Radius() > width)
             {
-                Move(new Vector2(Math.Abs(width - Radius()), Center.Y));
+                Move(new Vector2(width - Radius(), Center.Y));
             }
         }
 
@@ -160,6 +139,8 @@ namespace Draw.ShapeManagement
             
             return false;
         }
+
+
         public void Draw(Graphics graphics)
         {
             Draw(graphics, Brush);
