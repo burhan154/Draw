@@ -281,7 +281,7 @@ namespace Draw
             this.btnClear.Size = new System.Drawing.Size(70, 70);
             this.btnClear.TabIndex = 15;
             this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.button16_Click);
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnDelete
             // 
@@ -293,7 +293,7 @@ namespace Draw
             this.btnDelete.Size = new System.Drawing.Size(70, 70);
             this.btnDelete.TabIndex = 14;
             this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.button17_Click);
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // groupBox1
             // 
@@ -329,7 +329,7 @@ namespace Draw
             this.btnRectangle.Size = new System.Drawing.Size(100, 100);
             this.btnRectangle.TabIndex = 1;
             this.btnRectangle.UseVisualStyleBackColor = true;
-            this.btnRectangle.Click += new System.EventHandler(this.button3_Click);
+            this.btnRectangle.Click += new System.EventHandler(this.btnRectangle_Click);
             // 
             // btnTriangle
             // 
@@ -341,7 +341,7 @@ namespace Draw
             this.btnTriangle.Size = new System.Drawing.Size(100, 100);
             this.btnTriangle.TabIndex = 3;
             this.btnTriangle.UseVisualStyleBackColor = true;
-            this.btnTriangle.Click += new System.EventHandler(this.button4_Click);
+            this.btnTriangle.Click += new System.EventHandler(this.btnTriangle_Click);
             // 
             // btnHexagon
             // 
@@ -353,7 +353,7 @@ namespace Draw
             this.btnHexagon.Size = new System.Drawing.Size(100, 100);
             this.btnHexagon.TabIndex = 4;
             this.btnHexagon.UseVisualStyleBackColor = true;
-            this.btnHexagon.Click += new System.EventHandler(this.button19_Click);
+            this.btnHexagon.Click += new System.EventHandler(this.btnHexagon_Click);
             // 
             // btnCircle
             // 
@@ -366,7 +366,7 @@ namespace Draw
             this.btnCircle.Size = new System.Drawing.Size(100, 100);
             this.btnCircle.TabIndex = 2;
             this.btnCircle.UseVisualStyleBackColor = true;
-            this.btnCircle.Click += new System.EventHandler(this.button20_Click);
+            this.btnCircle.Click += new System.EventHandler(this.btnCircle_Click);
             // 
             // Form1
             // 
@@ -380,7 +380,7 @@ namespace Draw
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.drawingScreen);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Draw";
             groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.drawingScreen)).EndInit();
             this.groupBox5.ResumeLayout(false);

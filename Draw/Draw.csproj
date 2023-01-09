@@ -54,6 +54,22 @@
     <Compile Include="Entities\Rectangle.cs" />
     <Compile Include="Entities\Triangle.cs" />
     <Compile Include="Extensions\ButtonExtension.cs" />
+    <Compile Include="Form1.ClickEventFile.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.ClickEventColor.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.ClickEventOperation.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.ClickEventShape.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Tools\Cartesian.cs" />
     <Compile Include="Tools\Files.cs" />
     <Compile Include="Form1.cs">
