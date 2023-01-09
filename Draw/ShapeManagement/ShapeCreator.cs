@@ -30,7 +30,8 @@ namespace Draw.ShapeManagement
                     return newShape;
                 }   
             }
-            return (Shape)Activator.CreateInstance(types[0], firstPoint, currentPosition, brush); ;
+            //return null;
+            return (Shape)Activator.CreateInstance(types[0], firstPoint, currentPosition, brush);
         }
 
         public Shape CreateNewShape(ShapeEntity shapeEntity)

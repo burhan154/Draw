@@ -20,6 +20,12 @@ namespace Draw
         private Vector2 firstPoint;
         private ShapeManager shapeManager;
         private Cartesian cartesian;
+
+        private List<Button> fileButtons = new List<Button>();
+        private List<Button> operationButtons = new List<Button>();
+        private List<Button> colorButtons = new List<Button>();
+        private List<Button> shapeButtons = new List<Button>();
+
         public Form1()
         {
             InitializeComponent();
@@ -65,53 +71,59 @@ namespace Draw
 
         private void button3_Click(object sender, EventArgs e)
         {
+            (sender as Button).SelectActiveButton(shapeButtons);
             shapeManager.setShape(EnumShape.Rectangle);
         }
-
         private void button20_Click(object sender, EventArgs e)
         {
+            (sender as Button).SelectActiveButton(shapeButtons);
             shapeManager.setShape(EnumShape.Circle);
         }
-
         private void button19_Click(object sender, EventArgs e)
         {
+            (sender as Button).SelectActiveButton(shapeButtons);
             shapeManager.setShape(EnumShape.Hexagon);
         }
-
         private void button4_Click(object sender, EventArgs e)
         {
+            (sender as Button).SelectActiveButton(shapeButtons);
             shapeManager.setShape(EnumShape.Triangle);
         }
-
-        private void button18_Click(object sender, EventArgs e)
-        {
-            shapeManager.Select();
-        }
-
         private void ColorButton_Click(object sender, EventArgs e)
         {
-            var senderButton = sender as Button;
-            shapeManager.setColor(senderButton.BackColor);
+            Button selectedColorButton = sender as Button;
+            selectedColorButton.SelectActiveButton(colorButtons);
+            shapeManager.setColor(selectedColorButton.BackColor);
+            drawingScreen.Invalidate();
         }
-
         private void button17_Click(object sender, EventArgs e)
         {
+            (sender as Button).SelectActiveButton(operationButtons);
             shapeManager.Remove();
+            drawingScreen.Invalidate();
         }
-
         private void button16_Click(object sender, EventArgs e)
         {
+            (sender as Button).SelectActiveButton(operationButtons);
             shapeManager.Clear();
+            drawingScreen.Invalidate();
         }
-
-        private void button14_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-            shapeManager.OpenShapes();
-        }
-
-        private void button15_Click(object sender, EventArgs e)
-        {
+            (sender as Button).SelectActiveButton(fileButtons);
             shapeManager.SaveShapes();
+        }
+        private void btnOpen_Click(object sender, EventArgs e)
+        {
+            (sender as Button).SelectActiveButton(fileButtons);
+            shapeManager.OpenShapes();
+            drawingScreen.Invalidate();
+        }
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            (sender as Button).SelectActiveButtonDoubleClick(operationButtons);
+            shapeManager.Select();
+            drawingScreen.Invalidate();
         }
     }
 }

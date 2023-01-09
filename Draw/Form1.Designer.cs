@@ -31,8 +31,8 @@ namespace Draw
         {
             System.Windows.Forms.GroupBox groupBox4;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
+            this.btnOpen = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.drawingScreen = new System.Windows.Forms.PictureBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.button11 = new System.Windows.Forms.Button();
@@ -45,15 +45,15 @@ namespace Draw
             this.button10 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
+            this.btnSelect = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
+            this.btnRectangle = new System.Windows.Forms.Button();
+            this.btnTriangle = new System.Windows.Forms.Button();
+            this.btnHexagon = new System.Windows.Forms.Button();
+            this.btnCircle = new System.Windows.Forms.Button();
             groupBox4 = new System.Windows.Forms.GroupBox();
             groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.drawingScreen)).BeginInit();
@@ -65,8 +65,8 @@ namespace Draw
             // groupBox4
             // 
             groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            groupBox4.Controls.Add(this.button14);
-            groupBox4.Controls.Add(this.button15);
+            groupBox4.Controls.Add(this.btnOpen);
+            groupBox4.Controls.Add(this.btnSave);
             groupBox4.Location = new System.Drawing.Point(1192, 607);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new System.Drawing.Size(262, 91);
@@ -74,25 +74,29 @@ namespace Draw
             groupBox4.TabStop = false;
             groupBox4.Text = "DOSYA İŞLEMLERİ";
             // 
-            // button14
+            // btnOpen
             // 
-            this.button14.Image = ((System.Drawing.Image)(resources.GetObject("button14.Image")));
-            this.button14.Location = new System.Drawing.Point(16, 15);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(70, 70);
-            this.button14.TabIndex = 9;
-            this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
+            this.btnOpen.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpen.Image = ((System.Drawing.Image)(resources.GetObject("btnOpen.Image")));
+            this.btnOpen.Location = new System.Drawing.Point(16, 15);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(70, 70);
+            this.btnOpen.TabIndex = 9;
+            this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
-            // button15
+            // btnSave
             // 
-            this.button15.Image = ((System.Drawing.Image)(resources.GetObject("button15.Image")));
-            this.button15.Location = new System.Drawing.Point(95, 15);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(70, 70);
-            this.button15.TabIndex = 10;
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
+            this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.Location = new System.Drawing.Point(95, 15);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(70, 70);
+            this.btnSave.TabIndex = 10;
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // drawingScreen
             // 
@@ -105,6 +109,7 @@ namespace Draw
             this.drawingScreen.Size = new System.Drawing.Size(1188, 761);
             this.drawingScreen.TabIndex = 0;
             this.drawingScreen.TabStop = false;
+            this.drawingScreen.WaitOnLoad = true;
             this.drawingScreen.Paint += new System.Windows.Forms.PaintEventHandler(this.drawingScreen_Paint);
             this.drawingScreen.MouseDown += new System.Windows.Forms.MouseEventHandler(this.drawingScreen_MouseDown);
             this.drawingScreen.MouseMove += new System.Windows.Forms.MouseEventHandler(this.drawingScreen_MouseMove);
@@ -133,6 +138,8 @@ namespace Draw
             // button11
             // 
             this.button11.BackColor = System.Drawing.Color.White;
+            this.button11.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button11.Location = new System.Drawing.Point(175, 173);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(70, 70);
@@ -143,6 +150,8 @@ namespace Draw
             // button8
             // 
             this.button8.BackColor = System.Drawing.Color.Yellow;
+            this.button8.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button8.Location = new System.Drawing.Point(175, 97);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(70, 70);
@@ -153,6 +162,8 @@ namespace Draw
             // button12
             // 
             this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.button12.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button12.Location = new System.Drawing.Point(99, 173);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(70, 70);
@@ -163,6 +174,8 @@ namespace Draw
             // button7
             // 
             this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Location = new System.Drawing.Point(175, 21);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(70, 70);
@@ -173,6 +186,8 @@ namespace Draw
             // button13
             // 
             this.button13.BackColor = System.Drawing.Color.Purple;
+            this.button13.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button13.Location = new System.Drawing.Point(20, 173);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(70, 70);
@@ -183,6 +198,8 @@ namespace Draw
             // button9
             // 
             this.button9.BackColor = System.Drawing.Color.Black;
+            this.button9.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Location = new System.Drawing.Point(99, 97);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(70, 70);
@@ -193,6 +210,8 @@ namespace Draw
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.Blue;
+            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Location = new System.Drawing.Point(99, 21);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(70, 70);
@@ -203,6 +222,8 @@ namespace Draw
             // button10
             // 
             this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button10.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.Location = new System.Drawing.Point(20, 97);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(70, 70);
@@ -213,9 +234,13 @@ namespace Draw
             // button5
             // 
             this.button5.BackColor = System.Drawing.Color.Red;
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.ForeColor = System.Drawing.SystemColors.Control;
             this.button5.Location = new System.Drawing.Point(20, 21);
+            this.button5.Margin = new System.Windows.Forms.Padding(10);
             this.button5.Name = "button5";
+            this.button5.Padding = new System.Windows.Forms.Padding(10);
             this.button5.Size = new System.Drawing.Size(70, 70);
             this.button5.TabIndex = 8;
             this.button5.UseVisualStyleBackColor = false;
@@ -224,9 +249,9 @@ namespace Draw
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.button18);
-            this.groupBox3.Controls.Add(this.button16);
-            this.groupBox3.Controls.Add(this.button17);
+            this.groupBox3.Controls.Add(this.btnSelect);
+            this.groupBox3.Controls.Add(this.btnClear);
+            this.groupBox3.Controls.Add(this.btnDelete);
             this.groupBox3.Location = new System.Drawing.Point(1192, 512);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(262, 89);
@@ -234,45 +259,50 @@ namespace Draw
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "ŞEKİL İŞLEMLERİ";
             // 
-            // button18
+            // btnSelect
             // 
-            this.button18.Image = ((System.Drawing.Image)(resources.GetObject("button18.Image")));
-            this.button18.Location = new System.Drawing.Point(16, 13);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(70, 70);
-            this.button18.TabIndex = 10;
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
+            this.btnSelect.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSelect.Image = ((System.Drawing.Image)(resources.GetObject("btnSelect.Image")));
+            this.btnSelect.Location = new System.Drawing.Point(16, 13);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(70, 70);
+            this.btnSelect.TabIndex = 10;
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
-            // button16
+            // btnClear
             // 
-            this.button16.Image = ((System.Drawing.Image)(resources.GetObject("button16.Image")));
-            this.button16.Location = new System.Drawing.Point(171, 13);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(70, 70);
-            this.button16.TabIndex = 15;
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
+            this.btnClear.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
+            this.btnClear.Location = new System.Drawing.Point(171, 13);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(70, 70);
+            this.btnClear.TabIndex = 15;
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.button16_Click);
             // 
-            // button17
+            // btnDelete
             // 
-            this.button17.Image = ((System.Drawing.Image)(resources.GetObject("button17.Image")));
-            this.button17.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button17.Location = new System.Drawing.Point(95, 13);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(70, 70);
-            this.button17.TabIndex = 14;
-            this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
+            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.Location = new System.Drawing.Point(95, 13);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(70, 70);
+            this.btnDelete.TabIndex = 14;
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.button17_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button19);
-            this.groupBox1.Controls.Add(this.button20);
+            this.groupBox1.Controls.Add(this.btnRectangle);
+            this.groupBox1.Controls.Add(this.btnTriangle);
+            this.groupBox1.Controls.Add(this.btnHexagon);
+            this.groupBox1.Controls.Add(this.btnCircle);
             this.groupBox1.Location = new System.Drawing.Point(1188, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(266, 240);
@@ -289,46 +319,54 @@ namespace Draw
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
             // 
-            // button3
+            // btnRectangle
             // 
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.Location = new System.Drawing.Point(20, 19);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 100);
-            this.button3.TabIndex = 1;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnRectangle.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnRectangle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRectangle.Image = ((System.Drawing.Image)(resources.GetObject("btnRectangle.Image")));
+            this.btnRectangle.Location = new System.Drawing.Point(20, 19);
+            this.btnRectangle.Name = "btnRectangle";
+            this.btnRectangle.Size = new System.Drawing.Size(100, 100);
+            this.btnRectangle.TabIndex = 1;
+            this.btnRectangle.UseVisualStyleBackColor = true;
+            this.btnRectangle.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // btnTriangle
             // 
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(20, 134);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 100);
-            this.button4.TabIndex = 3;
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnTriangle.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnTriangle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTriangle.Image = ((System.Drawing.Image)(resources.GetObject("btnTriangle.Image")));
+            this.btnTriangle.Location = new System.Drawing.Point(20, 134);
+            this.btnTriangle.Name = "btnTriangle";
+            this.btnTriangle.Size = new System.Drawing.Size(100, 100);
+            this.btnTriangle.TabIndex = 3;
+            this.btnTriangle.UseVisualStyleBackColor = true;
+            this.btnTriangle.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button19
+            // btnHexagon
             // 
-            this.button19.Image = ((System.Drawing.Image)(resources.GetObject("button19.Image")));
-            this.button19.Location = new System.Drawing.Point(145, 134);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(100, 100);
-            this.button19.TabIndex = 4;
-            this.button19.UseVisualStyleBackColor = true;
-            this.button19.Click += new System.EventHandler(this.button19_Click);
+            this.btnHexagon.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnHexagon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHexagon.Image = ((System.Drawing.Image)(resources.GetObject("btnHexagon.Image")));
+            this.btnHexagon.Location = new System.Drawing.Point(145, 134);
+            this.btnHexagon.Name = "btnHexagon";
+            this.btnHexagon.Size = new System.Drawing.Size(100, 100);
+            this.btnHexagon.TabIndex = 4;
+            this.btnHexagon.UseVisualStyleBackColor = true;
+            this.btnHexagon.Click += new System.EventHandler(this.button19_Click);
             // 
-            // button20
+            // btnCircle
             // 
-            this.button20.AutoSize = true;
-            this.button20.Image = ((System.Drawing.Image)(resources.GetObject("button20.Image")));
-            this.button20.Location = new System.Drawing.Point(145, 19);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(100, 100);
-            this.button20.TabIndex = 2;
-            this.button20.UseVisualStyleBackColor = true;
-            this.button20.Click += new System.EventHandler(this.button20_Click);
+            this.btnCircle.AutoSize = true;
+            this.btnCircle.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnCircle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCircle.Image = ((System.Drawing.Image)(resources.GetObject("btnCircle.Image")));
+            this.btnCircle.Location = new System.Drawing.Point(145, 19);
+            this.btnCircle.Name = "btnCircle";
+            this.btnCircle.Size = new System.Drawing.Size(100, 100);
+            this.btnCircle.TabIndex = 2;
+            this.btnCircle.UseVisualStyleBackColor = true;
+            this.btnCircle.Click += new System.EventHandler(this.button20_Click);
             // 
             // Form1
             // 
@@ -366,18 +404,18 @@ namespace Draw
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button btnOpen;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button19;
-        public System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Button btnRectangle;
+        private System.Windows.Forms.Button btnTriangle;
+        private System.Windows.Forms.Button btnHexagon;
+        public System.Windows.Forms.Button btnCircle;
     }
 }
 

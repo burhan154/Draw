@@ -88,6 +88,7 @@ namespace Draw.ShapeManagement
             this.currentPosition = currentPosition;
             this.firstPoint = firstPoint;
 
+            var b = shape;
             if (isMouseDown && !select)
             {
                 Shape newShape = shapeCreator.CreateNewShape(shape, firstPoint, currentPosition, brush);

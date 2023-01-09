@@ -75,7 +75,6 @@ namespace Draw.ShapeManagement
             EndPoint.Y = Center.Y + y; 
         }
 
-
         protected void preventOverflow(double width, double height)
         {
 
