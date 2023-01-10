@@ -64,6 +64,8 @@ namespace Draw
             shapeManager.addActiveShape();
         }
 
+        
+        /// Button click event kodları Form1'in içerisindedir. 
 
     }
 }

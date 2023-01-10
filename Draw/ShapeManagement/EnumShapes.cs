@@ -11,6 +11,6 @@ namespace Draw.ShapeManagement
 
     static public class EnumShapes
     {
-        public enum EnumShape { Circle, Hexagon, Triangle, Rectangle }
+        public enum EnumShape {  Circle=1, Hexagon, Triangle, Rectangle }
     }
 }

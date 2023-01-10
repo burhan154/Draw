@@ -8,6 +8,7 @@ using static Draw.ShapeManagement.EnumShapes;
 
 namespace Draw.ShapeManagement
 {
+    //Şeklin verileridir. JSON veri olarak kaydedilir ve okunur.
     public class ShapeEntity
     {
         public Vector2 center { get; set; }

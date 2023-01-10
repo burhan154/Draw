@@ -49,10 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Circle.cs" />
-    <Compile Include="Entities\Hexagon.cs" />
-    <Compile Include="Entities\Rectangle.cs" />
-    <Compile Include="Entities\Triangle.cs" />
+    <Compile Include="Entities\Concrete\Circle.cs" />
+    <Compile Include="Entities\Concrete\Hexagon.cs" />
+    <Compile Include="Entities\Concrete\Rectangle.cs" />
+    <Compile Include="Entities\Concrete\Triangle.cs" />
     <Compile Include="Extensions\ButtonExtension.cs" />
     <Compile Include="Form1.ClickEventFile.cs">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -82,12 +82,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShapeManagement\EnumShapes.cs" />
-    <Compile Include="ShapeManagement\Shape.cs" />
-    <Compile Include="ShapeManagement\ShapeCreator.cs" />
-    <Compile Include="ShapeManagement\ShapeEntity.cs" />
+    <Compile Include="Entities\Abstract\Shape.cs" />
+    <Compile Include="Entities\Abstract\ShapeCreator.cs" />
+    <Compile Include="Entities\Abstract\ShapeEntity.cs" />
     <Compile Include="ShapeManagement\ShapeManager.cs" />
     <Compile Include="Tools\Vector2.cs" />
-    <Compile Include="Tools\Vector3.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

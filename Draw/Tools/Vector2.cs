@@ -29,14 +29,6 @@ namespace Draw
             set { y = value; }
         }
 
-        //public PointF ToPointF
-        //{
-        //    get
-        //    {
-        //        return new PointF((float)X, (float)Y);
-        //    }
-        //}
-
         public static Vector2 Zero
         {
             get { return new Vector2(0.0, 0.0); }
@@ -48,6 +40,5 @@ namespace Draw
             double dy = vector2.Y - Y;
             return Math.Sqrt(dx*dx+dy*dy);
         }
-
     }
 }

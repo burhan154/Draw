@@ -16,7 +16,7 @@ namespace Draw.ShapeManagement
         private List<Shape> shapes = new List<Shape>();
         private ShapeCreator shapeCreator = new ShapeCreator();
 
-        private SolidBrush brush = new SolidBrush(Color.Blue);
+        private SolidBrush brush;
         private SolidBrush extbrush = new SolidBrush(Color.LightGray);
         private SolidBrush selectedBrush = new SolidBrush(Color.Gray);
         private bool isMouseDown = false;
@@ -24,7 +24,7 @@ namespace Draw.ShapeManagement
         private Vector2 currentPosition;
         private Vector2 firstPoint;
         private EnumShape shape;
-
+        Shape newShape;
         private Shape selectedShape=null;
 
         private bool select=false;
@@ -44,13 +44,10 @@ namespace Draw.ShapeManagement
                     selectedShape.Select(graphics, selectedBrush, currentPosition);
                     selectedShape.Brush = brush;
                 }
-
                 foreach (Shape c in shapes)
                 {
-                    //selectedShape = c;
                     if (c.isPointInside(currentPosition))
                     {
-                        //isMouseDown = false;
                         if (select)
                         {
                             c.Select(graphics, extbrush, currentPosition);
@@ -61,15 +58,9 @@ namespace Draw.ShapeManagement
                                 selectShape = false;
                             }   
                         }
-                        else
-                        {
-                            //selectedShape = null;
-                        }
-                       
                     }
                     c.Draw(graphics);
                 }
-
                 if (selectedShape != null && select)
                 {
                     if (isMouseDown)
@@ -88,19 +79,19 @@ namespace Draw.ShapeManagement
             this.currentPosition = currentPosition;
             this.firstPoint = firstPoint;
 
-            var b = shape;
-            if (isMouseDown && !select)
+            if (isMouseDown && !select && brush!=null)
             {
-                Shape newShape = shapeCreator.CreateNewShape(shape, firstPoint, currentPosition, brush);
-                newShape.Draw(graphics, extbrush);
+                newShape = shapeCreator.CreateNewShape(shape, firstPoint, currentPosition, brush);
+                if(newShape !=null)
+                    newShape.Draw(graphics, extbrush);
             }
             Screen();
         }
 
         public void addActiveShape()
         {
-            if(isMouseDown && !select)
-                shapes.Add(shapeCreator.CreateNewShape(shape, firstPoint, currentPosition, brush));
+            if(isMouseDown && !select && brush != null && newShape != null)
+                shapes.Add(newShape);
             isMouseDown = false;
         }
 
@@ -119,6 +110,8 @@ namespace Draw.ShapeManagement
         }
         public void setColor(Color color)
         {
+            if (this.brush == null)
+                brush = new SolidBrush(color);
             this.brush.Color = color;
         }
 

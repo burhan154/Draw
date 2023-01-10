@@ -13,12 +13,15 @@ namespace Draw.ShapeManagement
     {
         private Type[] types;
 
+        //Shape sınıfından miras alınan her sınıfı bulur ve types a atar.
         public ShapeCreator()
         {
             types = Assembly.GetExecutingAssembly().GetTypes()
                            .Where(t => t.IsSubclassOf(typeof(Shape))).ToArray();
         }
 
+        //Enum shapedeki şekillerin string değerlerini types daki sınıfların isimleri ile karşılaştırır. Bulduğu şekliden yeni bir nesne oluşturur ve geri döndürür.
+        //public enum EnumShape { Circle, Hexagon, Triangle, Rectangle } yeni şekil eklendiğinde sınıfın adı buraya da eklenir bu sayede şekil EnumShape.Circle şeklinde şekil eklenebilir.
         public Shape CreateNewShape(EnumShape shape, Vector2 firstPoint, Vector2 currentPosition, SolidBrush brush)
         {
             Shape newShape;
@@ -30,8 +33,8 @@ namespace Draw.ShapeManagement
                     return newShape;
                 }   
             }
-            //return null;
-            return (Shape)Activator.CreateInstance(types[0], firstPoint, currentPosition, brush);
+            return null;
+            //return (Shape)Activator.CreateInstance(types[0], firstPoint, currentPosition, brush);
         }
 
         public Shape CreateNewShape(ShapeEntity shapeEntity)

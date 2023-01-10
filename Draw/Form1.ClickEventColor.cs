@@ -11,6 +11,7 @@ namespace Draw
     {
         private List<Button> colorButtons = new List<Button>();
 
+        //Buttonun rengini aktif renk olarak seçer.
         private void ColorButton_Click(object sender, EventArgs e)
         {
             Button selectedColorButton = sender as Button;

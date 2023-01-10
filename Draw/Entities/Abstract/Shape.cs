@@ -47,7 +47,7 @@ namespace Draw.ShapeManagement
             get { return shapeEntity.shape; }
             set { shapeEntity.shape = value; }
         }
-
+        //Şeklin sol üst noktasının kordinatlarını bulur.
         public Vector2 StartPoint()
         {
             double zx = Math.Abs(EndPoint.X - Center.X);
@@ -62,7 +62,7 @@ namespace Draw.ShapeManagement
         {
             return Center.DistanceFrom(EndPoint);
         }
-
+        //Şekli gönderilen kordinatlara hareket ettirir.
         public void Move(Vector2 newPoint)
         {
             var x = EndPoint.X - Center.X;
@@ -74,7 +74,7 @@ namespace Draw.ShapeManagement
             EndPoint.X = Center.X + x;
             EndPoint.Y = Center.Y + y; 
         }
-
+        //Şeklin ekran dışına taşmasını engeller.
         protected void preventOverflow(double width, double height)
         {
 
@@ -116,7 +116,7 @@ namespace Draw.ShapeManagement
             }
         }
 
-
+        //Şeklin kordinatlarından şeklin kare içerisinde olup olmadığını algılar.
         protected bool isPointInsideRectangle(Vector2 point)
         {
             double zx = Math.Abs(EndPoint.X - Center.X);
@@ -129,7 +129,7 @@ namespace Draw.ShapeManagement
 
             return false;
         }
-
+        //Şeklin kordinatlarından şeklin daire içerisinde olup olmadığını algılar.
         protected bool isPointInsideCircle(Vector2 point)
         {
             if ((point.X - Center.X) * (point.X - Center.X) +
@@ -138,7 +138,6 @@ namespace Draw.ShapeManagement
             
             return false;
         }
-
 
         public void Draw(Graphics graphics)
         {
