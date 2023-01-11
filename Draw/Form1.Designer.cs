@@ -1,4 +1,6 @@
 ﻿
+using static Draw.ShapeManagement.EnumShapes;
+
 namespace Draw
 {
     partial class Form1
@@ -43,17 +45,20 @@ namespace Draw
             this.button9 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnRed = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnSelect = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnRectangle = new System.Windows.Forms.Button();
-            this.btnTriangle = new System.Windows.Forms.Button();
-            this.btnHexagon = new System.Windows.Forms.Button();
-            this.btnCircle = new System.Windows.Forms.Button();
+
+           this.btnRectangle = new Extensions.ShapeButton(EnumShape.Rectangle);
+            this.btnTriangle = new Extensions.ShapeButton(EnumShape.Triangle);
+            this.btnHexagon = new Extensions.ShapeButton(EnumShape.Hexagon);
+            this.btnCircle = new Extensions.ShapeButton(EnumShape.Circle);
+
+
             groupBox4 = new System.Windows.Forms.GroupBox();
             groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.drawingScreen)).BeginInit();
@@ -127,7 +132,7 @@ namespace Draw
             this.groupBox5.Controls.Add(this.button9);
             this.groupBox5.Controls.Add(this.button6);
             this.groupBox5.Controls.Add(this.button10);
-            this.groupBox5.Controls.Add(this.button5);
+            this.groupBox5.Controls.Add(this.btnRed);
             this.groupBox5.Location = new System.Drawing.Point(1188, 246);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(266, 254);
@@ -231,20 +236,20 @@ namespace Draw
             this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.ColorButton_Click);
             // 
-            // button5
+            // btnRed
             // 
-            this.button5.BackColor = System.Drawing.Color.Red;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.ForeColor = System.Drawing.SystemColors.Control;
-            this.button5.Location = new System.Drawing.Point(20, 21);
-            this.button5.Margin = new System.Windows.Forms.Padding(10);
-            this.button5.Name = "button5";
-            this.button5.Padding = new System.Windows.Forms.Padding(10);
-            this.button5.Size = new System.Drawing.Size(70, 70);
-            this.button5.TabIndex = 8;
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.ColorButton_Click);
+            this.btnRed.BackColor = System.Drawing.Color.Red;
+            this.btnRed.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btnRed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRed.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnRed.Location = new System.Drawing.Point(20, 21);
+            this.btnRed.Margin = new System.Windows.Forms.Padding(10);
+            this.btnRed.Name = "btnRed";
+            this.btnRed.Padding = new System.Windows.Forms.Padding(10);
+            this.btnRed.Size = new System.Drawing.Size(70, 70);
+            this.btnRed.TabIndex = 8;
+            this.btnRed.UseVisualStyleBackColor = false;
+            this.btnRed.Click += new System.EventHandler(this.ColorButton_Click);
             // 
             // groupBox3
             // 
@@ -329,7 +334,7 @@ namespace Draw
             this.btnRectangle.Size = new System.Drawing.Size(100, 100);
             this.btnRectangle.TabIndex = 1;
             this.btnRectangle.UseVisualStyleBackColor = true;
-            this.btnRectangle.Click += new System.EventHandler(this.btnRectangle_Click);
+            this.btnRectangle.Click += new System.EventHandler(this.btnShape_Click);
             // 
             // btnTriangle
             // 
@@ -341,7 +346,7 @@ namespace Draw
             this.btnTriangle.Size = new System.Drawing.Size(100, 100);
             this.btnTriangle.TabIndex = 3;
             this.btnTriangle.UseVisualStyleBackColor = true;
-            this.btnTriangle.Click += new System.EventHandler(this.btnTriangle_Click);
+            this.btnTriangle.Click += new System.EventHandler(this.btnShape_Click);
             // 
             // btnHexagon
             // 
@@ -353,7 +358,7 @@ namespace Draw
             this.btnHexagon.Size = new System.Drawing.Size(100, 100);
             this.btnHexagon.TabIndex = 4;
             this.btnHexagon.UseVisualStyleBackColor = true;
-            this.btnHexagon.Click += new System.EventHandler(this.btnHexagon_Click);
+            this.btnHexagon.Click += new System.EventHandler(this.btnShape_Click);
             // 
             // btnCircle
             // 
@@ -366,7 +371,7 @@ namespace Draw
             this.btnCircle.Size = new System.Drawing.Size(100, 100);
             this.btnCircle.TabIndex = 2;
             this.btnCircle.UseVisualStyleBackColor = true;
-            this.btnCircle.Click += new System.EventHandler(this.btnCircle_Click);
+            this.btnCircle.Click += new System.EventHandler(this.btnShape_Click);
             // 
             // Form1
             // 
@@ -390,7 +395,8 @@ namespace Draw
             this.ResumeLayout(false);
 
         }
-
+        private void ButtonComponent() { 
+        }
         #endregion
 
         private System.Windows.Forms.PictureBox drawingScreen;
@@ -403,7 +409,7 @@ namespace Draw
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnRed;
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -412,10 +418,10 @@ namespace Draw
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnRectangle;
-        private System.Windows.Forms.Button btnTriangle;
-        private System.Windows.Forms.Button btnHexagon;
-        public System.Windows.Forms.Button btnCircle;
+        private Extensions.ShapeButton btnRectangle;
+        private Extensions.ShapeButton btnTriangle;
+        private Extensions.ShapeButton btnHexagon;
+        private Extensions.ShapeButton btnCircle;
     }
 }
 

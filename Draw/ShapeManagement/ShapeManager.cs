@@ -24,9 +24,9 @@ namespace Draw.ShapeManagement
         private Vector2 currentPosition;
         private Vector2 firstPoint;
         private EnumShape shape;
-        Shape newShape;
+        private Shape newShape;
         private Shape selectedShape=null;
-
+        private EnumShape activeShape;
         private bool select=false;
         private bool selectShape = false;
 
@@ -56,6 +56,7 @@ namespace Draw.ShapeManagement
                                 selectedShape = c;
                                 brush = c.Brush;
                                 selectShape = false;
+                                activeShape = selectedShape.shapeEntity.shape;
                             }   
                         }
                     }
@@ -108,13 +109,24 @@ namespace Draw.ShapeManagement
         {
             this.shape = enumShape;
         }
+
+        public EnumShape getShape()
+        {
+            return activeShape;
+        }
+
         public void setColor(Color color)
         {
             if (this.brush == null)
                 brush = new SolidBrush(color);
             this.brush.Color = color;
         }
-
+        public Color getColor()
+        {
+           if(brush!=null)
+            return this.brush.Color;
+           return new Color();
+        }
         public void Select()
         {
             if (select)

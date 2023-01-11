@@ -1,4 +1,5 @@
 ﻿using Draw.Entities;
+using Draw.Extensions;
 using Draw.ShapeManagement;
 using Draw.Tools;
 using System;
@@ -62,9 +63,21 @@ namespace Draw
         private void drawingScreen_MouseUp(object sender, MouseEventArgs e)
         {
             shapeManager.addActiveShape();
+
+
+            foreach (var button in colorButtons)
+            {
+                if (button.BackColor.ToArgb().Equals(shapeManager.getColor().ToArgb()))
+                    button.SelectActiveButton(colorButtons);
+            }
+
+            foreach (ShapeButton button in shapeButtons)
+            {
+                if (button.Shape.Equals(shapeManager.getShape()))
+                    button.SelectActiveButton(shapeButtons);
+            }
         }
 
-        
         /// Button click event kodları Form1'in içerisindedir. 
 
     }
