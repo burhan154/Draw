@@ -57,14 +57,6 @@
     <Compile Include="Extensions\ShapeButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Form1.ClickEventColor.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.ClickEventOperation.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Tools\Cartesian.cs" />
     <Compile Include="Tools\Files.cs" />
     <Compile Include="Form1.cs">
@@ -72,6 +64,10 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.ClickEventHandler.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Extensions\GraphicsExtension.cs" />
     <Compile Include="Program.cs" />

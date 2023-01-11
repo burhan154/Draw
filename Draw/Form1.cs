@@ -13,6 +13,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Draw.ShapeManagement.EnumShapes;
 
+//Hüseyin Burhan Başaran
+//github.com/burhan154
+
 namespace Draw
 {
     public partial class Form1 : Form
